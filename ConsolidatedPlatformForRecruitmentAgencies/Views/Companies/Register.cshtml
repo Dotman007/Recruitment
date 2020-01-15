@@ -1,0 +1,90 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Company
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutCompanyLogin.cshtml";
+}
+
+
+
+<div class="login-area login-bg" style="font-family:'Poppins'">
+    <div class="container">
+        <div class="login-box ptb--100">
+            @using (Html.BeginForm("Register", "Companies",FormMethod.Post,new { enctype="multipart/form-data"}))
+            {
+                            @Html.AntiForgeryToken()
+
+                            <div class="login-form-head" style="font-family:'Poppins'">
+                    <h4>Sign up</h4>
+                    <p style="font-family:'Poppins'">Hello there, Sign up and Join with Us</p>
+                </div>
+
+                <div class="login-form-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control", @id = "exampleInputName1",@placeholder="Company Name" } })
+                            <i class="ti-user"></i>
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control ", @placeholder = "Company Address", @id = "exampleInputName1" } })
+                            <i class="fa fa-building"></i>
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new {@class = "form-control", @id = "exampleInputEmail1" , @placeholder = "Company Email" } })
+                            <i class="fa fa-inbox"></i>
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="logofile" />
+                            @*@Html.EditorFor(model => model.Logo, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Company Logo" } })*@
+                            <i class="fa fa-image"></i>
+                            @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Company Website" } })
+                            <i class="fa fa-weibo"></i>
+                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="submit-btn-area">
+                        @*<input type="submit" value="Create" class="btn btn-default" />*@
+                        <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                        <div class="login-other row mt-4">
+                            <div class="col-6">
+                                <a class="fb-login" href="#">Sign up with <i class="fa fa-facebook"></i></a>
+                            </div>
+                            <div class="col-6">
+                                <a class="google-login" href="#">Sign up with <i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer text-center mt-5">
+                        <p class="text-muted" style="font-family:'Poppins'">Do you have an account? <a href="/Companies/Login">Sign in</a></p>
+                    </div>
+                </div>
+                
+            }
+
+</div>
+        </div>
+</div>

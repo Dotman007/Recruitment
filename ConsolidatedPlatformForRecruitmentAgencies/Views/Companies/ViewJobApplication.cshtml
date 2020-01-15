@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Job>
+@{
+    ViewBag.Title = "ViewPostedJobs";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="main-content-inner" style="font-family:'Poppins'">
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="invoice-area">
+                            <div class="invoice-head">
+                                <div class="row">
+                                    <div class="iv-left col-6">
+                                    </div>
+                                    <div class="iv-right col-6 text-md-right">
+                                        <span>@DateTime.Now.ToLongDateString()</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="invoice-address">
+                                        <h3>Posted By</h3>
+                                        <h5>@item.Company.CompanyName</h5>
+                                        <p style="font-family:'Poppins'">@item.Company.Address</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-md-right">
+                                    <ul class="invoice-date">
+                                        <li>Website :@item.Company.Website</li>
+                                        <li>Email :@item.Company.Email</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mt-7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title" style="font-family:'Poppins'">No of Applicants : @Model.Count()</h4>
+                                        <div class="single-table">
+                                            <div class="table-responsive">
+                                                <table class="table text-center table-bordered table-striped table-hover">
+                                                    <thead class="text-uppercase bg-primary">
+                                                    <thead>
+                                                        <tr class="text-capitalize">
+                                                            <th class="text-center" style="width: 20%;">Job Category</th>
+                                                            <th class="text-left" style="width: 30%; min-width: 130px;">Qualification</th>
+                                                            <th min-width: 130px>Job Role</th>
+                                                            <th style="min-width: 100px">Applicant</th>
+                                                            <th>Date Applied</th>
+                                                            <th>Interview</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">@item.JobCategory.JobCategoryName</td>
+                                                            <td class="text-left">@item.Qualification.QualificationName</td>
+                                                            <td>@item.JobRole</td>
+                                                            <td>@item.Applicant.UserName</td>
+                                                            <td>@item.DateApplied</td>
+                                                            @if (@item.Scheduled == true)
+                                                            {
+                                                                <td>
+                                                                    Scheduled
+                                                                </td>
+                                                            }
+                                                            @if (item.Scheduled != true)
+                                                            {
+                                                                <td>
+                                                                    <a href="/Applicant/ScheduleInterview/@item.ApplicantId" class="btn btn-info">Schedule Interview</a>
+                                                                </td>
+                                                            }
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr></tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

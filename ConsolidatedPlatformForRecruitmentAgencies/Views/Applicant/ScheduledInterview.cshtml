@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Interview>
+
+@{
+    ViewBag.Title = "ScheduledInterview";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2 class="text-center">Scheduled Interview</h2>
+<br />
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+     
+        <th>
+           Company Name
+        </th>
+        <th>
+            Job Role
+        </th>
+        <th>
+            Interview Date
+        </th>
+        <th>
+            Venue
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DateScheduled)
+        </th>*@
+       
+        <th>Interview Status</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.JobRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DateScheduled)
+        </td>*@
+            @if (item.Accept == true)
+            {
+            <td>
+                Accepted by @item.Applicant.FirstName | <a href="/Interviews/InterviewRules" class="btn btn-info"><span><img src="~/assets/images/author/interview-icon.png" alt="inteview image" height="30" width="30" class="img-thumbnail"/></span>Do Interview</a>
+            </td>
+        }
+            @if (item.NotInterested == true)
+            {
+            <td>
+                Rejected by @item.Applicant.FirstName
+            </td>
+            }
+            @if (item.NotInterested != true && item.Accept != true)
+            {
+                <td>
+                    <a href="/Interviews/Accept/@item.ApplicantId" class="btn btn-success">Accept</a>
+                    <a href="/Interviews/NoInterest/@item.ApplicantId" class="btn btn-danger">Reject</a>
+                </td>
+            }
+            
+        </tr>
+}
+
+</table>

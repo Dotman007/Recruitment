@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Grade>
+
+@{
+    ViewBag.Title = "GetAllGrades";
+}
+
+<h2>List of Grades</h2>
+
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditGrade", new { id=item.GradeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GradeId }) |
+            @Html.ActionLink("Delete", "DeleteGrade", new { id=item.GradeId })
+        </td>
+    </tr>
+}
+
+</table>

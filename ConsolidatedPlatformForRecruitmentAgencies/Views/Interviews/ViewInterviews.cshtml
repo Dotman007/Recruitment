@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Interview>
+
+@{
+    ViewBag.Title = "ViewInterviews";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+@if (Model.Count() == 0)
+{
+    <h2 class="text-center">Interview List is Empty</h2>
+}
+else
+{
+<h2 class="text-center">View Interviews</h2>
+
+<br />
+<table class="table table-striped table-bordered">
+    <tr>
+        
+        <th>
+            Company Name
+        </th>
+        <th>
+            Job Role
+        </th>
+        <th>
+            Interview Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue)
+        </th>
+        <th>
+            Date Scheduled
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.JobRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateScheduled)
+        </td>
+        <td>
+
+            @if (item.Accept == true)
+            {
+            <td>
+                Accepted
+            </td>
+            }
+            @if (item.NotInterested == true)
+            {
+                <td>
+                    Not Interested
+                </td>
+            }
+            @if (item.NotInterested != true && item.Accept != true)
+            {
+                <td>
+                    <a href="/Interviews/Accept/@item.ApplicantId" class="btn btn-success">Accept</a>
+                    <a href="/Interviews/NoInterest/@item.ApplicantId" class="btn btn-danger">No Interest</a>
+                </td>
+            }
+            </td>
+        </tr>
+}
+
+</table>
+}

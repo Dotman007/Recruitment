@@ -1,0 +1,56 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Company
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+
+    <!-- page title area end -->
+    <div class="main-content-inner" style="font-family:'Poppins'">
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="invoice-area">
+                            <div class="invoice-head">
+                                <div class="row">
+                                    <div class="iv-left col-6">
+                                        <span>Profile Information</span>
+                                    </div>
+                                    <div class="iv-right col-6 text-md-right">
+                                        <span>@DateTime.Now.ToLongDateString()</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="invoice-address">
+                                        <h3><b></b></h3>
+                                        <h5><b>Registration :</b> @Model.RegistrationNo</h5>
+                                        <br />
+                                        <h5 style="font-family:'Poppins'"><b>Company Name :</b> @Model.CompanyName</h5>
+                                        <br />
+                                        <h5><b>Website : </b> @Model.Website</h5>
+                                        <br />
+                                        <h5><b>Email :</b> @Model.Email</h5>
+                                        <br />
+                                        <h5><b>Address :</b> @Model.Address</h5>
+                                    </div>
+                                </div>
+                               <div>
+                                   <img src="@string.Format("/CompanyLogo/{0}",Model.Logo)" width="448" height="112" class="img-rounded img-responsive" />
+                                   @*<img src="~/assets/images/author/jobb.jpg" alt="logo" style="float:left" />*@
+                               </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+
+
+

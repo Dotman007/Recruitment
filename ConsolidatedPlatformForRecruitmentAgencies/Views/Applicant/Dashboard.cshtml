@@ -1,0 +1,42 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Applicant
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+                <div class="card col-md-12"  >
+                    <div class="card-header">
+                        <strong class="card-title mb-12">Profile Information</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="mx-auto d-block">
+                            <h5 class="text-sm-center mt-2 mb-1">Registration No :@Html.DisplayFor(model => model.UserName)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">FirstName :@Html.DisplayFor(model => model.FirstName)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">LastName :@Html.DisplayFor(model => model.LastName)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">Country :@Html.DisplayFor(model => model.Country.CountryName)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">Birth Date:
+                                @String.Format("{0:D}", Model.BirthDate)
+                                                        
+                                                    </h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">Email :@Html.DisplayFor(model => model.Email)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">Gender :@Html.DisplayFor(model => model.Gender.GenderName)</h5>
+                            <br />
+                            <h5 class="text-sm-center mt-2 mb-1">Mobile No :@Html.DisplayFor(model => model.TelephoneNo)</h5>
+                            <br />
+                            <div class="location text-sm-center">
+                                <i class="fa fa-map-marker"></i> @Html.DisplayFor(model => model.State.StateName)
+                            </div>
+                            <br />
+                            <a href="/UserPhotoes/Create" class="au-btn au-btn--block au-btn--blue2 m-b-20" style="text-align:center">Upload Profile Picture</a>
+                        </div>
+                        <hr>
+                        
+                    </div>
+                </div>
+

@@ -1,0 +1,18 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.State
+
+@{
+    ViewBag.Title = "DisplayStates";
+}
+<option>
+--Select State--
+</option>
+@if (ViewBag.States != null)
+{
+    foreach (var item in ViewBag.States)
+    {
+        <option value="@item.Value">
+            @item.Text
+        </option>
+    }
+}
+

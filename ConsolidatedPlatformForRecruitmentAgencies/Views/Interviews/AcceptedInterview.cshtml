@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Interview>
+
+@{
+    ViewBag.Title = "AcceptedInterview";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.ApplicantUniqueNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job.JobRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateScheduled)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.ApplicantUniqueNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.JobRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateScheduled)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InterviewId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InterviewId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InterviewId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,96 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Job
+
+@{
+    ViewBag.Title = "Job Posting";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<div class="main-content-inner" style="font-family:'Poppins'" >
+    <div class="row">
+        <div class="col-lg-12 col-ml-12">
+            <div class="row">
+                <!-- Textual inputs start -->
+                <div class="col-12 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title text-center text-capitalize" >Post Jobs</h4>
+                            
+                            
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.JobCategoryId, "Job Field", htmlAttributes: new { @class="col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("JobCategoryId", null, htmlAttributes: new { @class = "form-control custom-select", @id = "example-text-input"})
+                                            @Html.ValidationMessageFor(model => model.JobCategoryId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.JobRole, "Job Role", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.JobRole, new { htmlAttributes = new { @class = "form-control", @id = "example-text-input" } })
+                                            @Html.ValidationMessageFor(model => model.JobRole, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.QualificationId, "Qualification", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("QualificationId", null, htmlAttributes: new { @class = "form-control custom-select", @id = "example-text-input" })
+                                            @Html.ValidationMessageFor(model => model.QualificationId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.GradeId, "Grade", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("GradeId", null, htmlAttributes: new { @class = "form-control custom-select", @id = "example-text-input" })
+                                            @Html.ValidationMessageFor(model => model.GradeId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CourseId, "Course", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control custom-select", @id = "example-text-input" })
+                                            @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.JobDescription, "Job Description", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.JobDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DeadLine, "Deadline", htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.DeadLine, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DeadLine, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Submit" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                                }
+
+                                @*<div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@

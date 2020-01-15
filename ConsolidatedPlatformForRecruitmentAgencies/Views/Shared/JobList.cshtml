@@ -1,0 +1,62 @@
+﻿@model  ConsolidatedPlatformForRecruitmentAgencies.Models.Job
+   <h2>JobList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade.GradeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobCategory.JobCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualification.QualificationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobRole)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+   
+        <tr>
+
+            <td>
+               @Model.Company.CompanyName
+            </td>
+            <td>
+                @Model.Course.CourseName
+            </td>
+            <td>
+                @Model.Grade.GradeName
+            </td>
+            <td>
+                @Model.JobCategory.JobCategoryName
+            </td>
+            <td>
+                @Model.Qualification.QualificationName
+            </td>
+            <td>
+                @Model.JobRole
+            </td>
+
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
+            </td>*@
+        </tr>
+
+</table>
+

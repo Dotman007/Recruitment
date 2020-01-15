@@ -1,0 +1,122 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Applicant
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+
+@*<h1 class="text-center">Register</h1>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="">
+@*<br />*@
+    @*<hr />*@
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control au-input au-input--full", @placeholder="First Name" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control au-input au-input--full", @placeholder = "Last Name" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control au-input au-input--full", @placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.TelephoneNo, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TelephoneNo, new { htmlAttributes = new { @class = "form-control au-input au-input--full", @placeholder = "Mobile No" } })
+            @Html.ValidationMessageFor(model => model.TelephoneNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.CountryId, "Country", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+
+            @*<select class="form-control" id="ddlCountry"></select>*@
+            @if (ViewBag.CountryId != null)
+            {
+                @Html.DropDownListFor(model => model.CountryId, ViewBag.CountryId as SelectList, "--Select Your Country--", new { @class = "form-control au-input au-input--full" })
+            }
+            @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.StateId, "State", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+
+            @*<select class="form-control" id="ddlState"></select>*@
+            @Html.DropDownListFor(model => model.StateId, new SelectList(""), "--Select Your State--", new { @class = "form-control au-input au-input--full" })
+            @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.GenderId, "Gender", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("GenderId", null, htmlAttributes: new { @class = "form-control au-input au-input--full", @placeholder = "Gender" })
+            @Html.ValidationMessageFor(model => model.GenderId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control au-input au-input--full", @placeholder = "Birth Date" } })
+            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
+    
+    <div class="register-link">
+        <p>
+            Already have account?
+            <a href="/Applicant/Login">Sign In</a>
+        </p>
+    </div>
+    </div>
+    @*<div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>*@
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#CountryId').change(function () {
+            $.get('/Applicant/GetStateByCountryId', { id: $('#CountryId').val() }, function (data) {
+                $('#StateId').empty();
+                $.each(data, function (index, row) {
+                    $("#StateId").append("<option value='" + row.StateId + "'>" + row.StateName + "</option>")
+                });
+            });
+        })
+    })
+</script>
+
+

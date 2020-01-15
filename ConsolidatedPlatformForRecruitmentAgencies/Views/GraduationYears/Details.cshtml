@@ -1,0 +1,26 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.GraduationYear
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GraduationYear</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GraduationYearName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraduationYearName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GraduationYearId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

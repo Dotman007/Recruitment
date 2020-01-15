@@ -1,0 +1,83 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Education
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<div>
+    <h4>Academic Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Course
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+
+        <dt>
+            Grade
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade.GradeName)
+        </dd>
+
+        <dt>
+            Graduation Year
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraduationYear.GraduationYearName)
+        </dd>
+
+        <dt>
+            Qualification
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualification.QualificationName)
+        </dd>
+
+        <dt>
+            University Attended
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University.UniversityName)
+        </dd>
+
+
+       <dt>
+           Certificate
+       </dt>
+
+       <dd>
+           <img src="@string.Format("/Uploads/{0}",Model.DegreeCertificate)" width="448" height="112" class="img-rounded img-responsive" />
+       </dd>
+        @*<dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantId)
+        </dd>*@
+
+        <dt>
+            About Me
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AboutYou)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.EducationId }) |*@
+    <a href="/Education/ViewAddedEducation" class="au-btn-load">Back to List</a>
+</p>

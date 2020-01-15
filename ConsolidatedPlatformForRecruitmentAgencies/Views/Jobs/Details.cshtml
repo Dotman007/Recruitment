@@ -1,0 +1,72 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Course
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CourseName)
+        </dd>
+
+        <dt>
+            Grade
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade.GradeName)
+        </dd>
+
+        <dt>
+            Job Category
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobCategory.JobCategoryName)
+        </dd>
+
+        <dt>
+            Qualification
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualification.QualificationName)
+        </dd>
+
+        <dt>
+            Job Role
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobRole)
+        </dd>
+
+        <dt>
+            Job Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+
+    @*@Html.ActionLink("Apply", "Apply", "Jobs",new { id = Model.JobId, @class= "btn btn-primary" })*@
+    <a href="/Applicant/Apply/@Model.JobId" class="role user">Apply</a>
+    @*@Html.ActionLink("A", "Edit", new { id = Model.JobId }) |
+        @Html.ActionLink("Back to List", "Index")*@
+</p>

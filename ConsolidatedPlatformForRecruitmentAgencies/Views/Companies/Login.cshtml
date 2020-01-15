@@ -1,0 +1,84 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.Company
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutCompanyLogin.cshtml";
+}
+<div class="login-area login-bg">
+    <div class="container">
+        <div class="login-box ptb--100">
+            @using (Html.BeginForm("Login","Companies", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="login-form-head">
+
+                <h4>Sign In</h4>
+
+                <div style="font-family:'Poppins'">@ViewBag.UserDoesNotExist</div>
+                @*<p style="font-family:'Poppins'">New Company</p>*@
+            </div>
+                <div class="login-form-body"  style="font-family:'Poppins'">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.RegistrationNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.RegistrationNo, new { htmlAttributes = new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Registration No." } })
+                            <i class="ti-email"></i>
+                            @Html.ValidationMessageFor(model => model.RegistrationNo, "", new { @class = "text-danger" })
+                            <p>@ViewBag.RegNoRequired</p>
+                        </div>
+                    </div>
+
+                    <div class="form-gp">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id = "exampleInputPassword1", @placeholder = "Password" } })
+                            <i class="ti-lock"></i>
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            <p>@ViewBag.PasswordRequired</p>
+                        </div>
+
+                        <br />
+                        <p>@ViewBag.PasswordAndRegNo</p>
+                    </div>
+
+                    <div class="row mb-4 rmber-area">
+                        <div class="col-6">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
+                            </div>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <div class="submit-btn-area">
+                        <button id="form_submit" type="submit"  style="font-family:'Poppins'">Submit <i class="ti-arrow-right"></i></button>
+                        <div class="login-other row mt-4">
+                            <div class="col-6">
+                                <a class="fb-login" href="#">Log in with <i class="fa fa-facebook"></i></a>
+                            </div>
+                            <div class="col-6">
+                                <a class="google-login" href="#">Log in with <i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer text-center mt-5">
+                        <p class="text-muted"  style="font-family:'Poppins'">Don't have an account? <a href="/Companies/Register">Sign up</a></p>
+                    </div>
+
+                </div>
+           
+                @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>*@
+            }
+            </div>
+        </div>
+    </div>
+          

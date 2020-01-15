@@ -1,0 +1,35 @@
+﻿@model ConsolidatedPlatformForRecruitmentAgencies.Models.UserPhoto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserPhoto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.ApplicantUniqueNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.ApplicantUniqueNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhotoImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPhotoImage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserPhotoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

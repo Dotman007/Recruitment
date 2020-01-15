@@ -1,0 +1,115 @@
+﻿@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Job>
+
+@{
+    ViewBag.Title = "ViewJobs";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+@if (Model == null)
+{
+    <br />
+    <h2 class="text-center text-warning">No Available Job For Now....</h2>
+}
+
+else
+{
+   
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <!-- DATA TABLE -->
+            <h3 class="title-5 m-b-35">List of Jobs</h3>
+            <div class="table-data__tool">
+                <div class="table-data__tool-left">
+                    <div class="rs-select2--light rs-select2--md">
+                        <select class="js-select2" name="property">
+                            <option selected="selected">All Properties</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+                    <div class="rs-select2--light rs-select2--sm">
+                        <select class="js-select2" name="time">
+                            <option selected="selected">Today</option>
+                            <option value="">3 Days</option>
+                            <option value="">1 Week</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+                    <button class="au-btn-filter">
+                        <i class="zmdi zmdi-filter-list"></i>filters
+                    </button>
+                </div>
+                <div class="table-data__tool-right">
+                    @*<button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                        <i class="zmdi zmdi-plus"></i>add item
+                    </button>
+                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                        <select class="js-select2" name="type">
+                            <option selected="selected">Export</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>*@
+                    @*</div>*@
+                </div>
+            </div>
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <tr>
+
+                                <th>
+                                    Job Category
+                                </th>
+                                <th>
+                                    Qualification
+                                </th>
+                                <th>
+                                    Job Role
+                                </th>
+                                <th>
+                                    Job Description
+                                </th>
+
+                                <th>
+                                    Deadline
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobCategory.JobCategoryName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Qualification.QualificationName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobRole)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobDescription)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeadLine)
+                                    </td>
+                                    <td>
+
+
+                                        <a href="/Jobs/Details/@item.JobId" class="role member">DETAILS</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+            }

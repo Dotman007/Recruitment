@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<ConsolidatedPlatformForRecruitmentAgencies.Models.Job>
+
+@foreach (var job in Model)
+{
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="active-popular-post-carusel">
+                <div class="single-popular-post d-flex flex-row">
+                    @*<div class="thumb">
+                        <img class="img-fluid" src="img/p1.png" alt="">
+                        <a class="" href="#">view job post</a>
+                    </div>*@
+                    <div class="details">
+                        <a href="#"><h4>@job.JobRole</h4></a>
+                        <h6>@job.Company.CompanyName</h6>
+                        <p>
+                            @job.JobDescription
+                        </p>
+
+                    </div>
+                    <br />
+                    <div>
+
+                    </div>
+                </div>
+                <div class="single-popular-post d-flex flex-row">
+                    @*<div class="thumb">
+                        <img src="img/p2.png" alt="">
+                        <a class="" href="#">View Job Post</a>
+                    </div>*@
+                    <div class="details">
+                        <a href="#"><h4>Job Role</h4></a>
+                        <h6>Company Name</h6>
+                        <p>
+                            Job Description
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}

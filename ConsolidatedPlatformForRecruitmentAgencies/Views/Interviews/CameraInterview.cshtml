@@ -1,0 +1,112 @@
+﻿
+
+@{
+    ViewBag.Title = "CameraInterview";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33848682-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-33848682-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Simplest possible examples of HTML, CSS and JavaScript.">
+    <meta name="author" content="//samdutton.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta itemprop="name" content="simpl.info: simplest possible examples of HTML, CSS and JavaScript">
+    <meta itemprop="image" content="/images/icons/icon192.png">
+    <meta id="theme-color" name="theme-color" content="#fff">
+
+    <link rel="icon" href="/images/icons/icon192.png">
+
+    <base target="_blank">
+
+
+    <title>RTCPeerConnection</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+
+    <style>
+        button {
+            margin: 0 20px 0 0;
+            width: 85.9px;
+        }
+
+            button#hangupButton {
+                margin: 0;
+            }
+
+        p.borderBelow {
+            margin: 0 0 1.5em 0;
+            padding: 0 0 1.5em 0;
+        }
+
+        video {
+            height: 225px;
+            margin: 0 0 20px 0;
+            vertical-align: top;
+            width: calc(50% - 13px);
+        }
+
+            video#localVideo {
+                width: 500px;
+                height: 375px;
+                background-color: #666;
+                /*margin: 0 20px 20px 0;*/
+            }
+            video#remoteVideo {
+                width: 500px;
+                height: 375px;
+                background-color: #666;
+                /*margin: 0 20px 20px 0;*/
+            }
+        button {
+            margin: 0 11px 10px 0;
+        }
+
+        video {
+            height: 90px;
+            margin: 0 0 10px 0;
+            width: calc(50% - 7px);
+        }
+
+            video#localVideo {
+                width: 500px;
+                height: 375px;
+                background-color: #666;
+                /*margin: 0 10px 20px 0;*/
+            }
+            
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h3 class="text-center">Interview</h3>
+    </div>
+    <br />
+    <div id="container">
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <div>
+            <button id="startButton" class="btn btn-info">Camera</button>
+            <button id="callButton"  class="btn btn-success">Start</button>
+            <button id="hangupButton"  class="btn btn-warning">Hang Up</button>
+        </div>
+        <script src="~/Scripts/main.js"></script>
+    </div>
+</body>
+</html>
